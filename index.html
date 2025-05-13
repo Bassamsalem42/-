@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأمن السيبراني</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+
+        .dark-mode h2,
+        .dark-mode h3,
+        .dark-mode h4,
+        .dark-mode p,
+        .dark-mode li,
+        .dark-mode label {
+            color: #f1f1f1;
+        }
+
+        .dark-mode .video-box,
+        .dark-mode .facts,
+        .dark-mode .contact-form,
+        .dark-mode .download,
+        .dark-mode .note,
+        .dark-mode .sidebar button {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+        }
+
+        .dark-mode .sidebar {
+            background-color: #222;
+        }
+
+        .dark-mode .top-alert {
+            background-color: #b30000;
+        }
+
+        button:hover {
+            background-color: #0057a3;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .video-box, .facts, .contact-form, .download {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+
+        .contact-form button {
+            padding: 8px 16px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .top-alert {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .search-box {
+            margin: 10px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 8px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .mode-control {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .toggle-mode {
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-alert">
+        ⚠️ تحذير: لا تفتح الروابط المشبوهة أو غير المعروفة!
+    </div>
+
+    <div class="mode-control">
+        <button class="toggle-mode" onclick="toggleMode()">تبديل الوضع الليلي/النهاري</button>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="ابحث في المحتوى..." oninput="filterContent()">
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <button onclick="showContent('مفهوم')">مفهوم الأمن السيبراني</button>
+            <button onclick="showContent('أهمية')">أهمية الأمن السيبراني</button>
+            <button onclick="showContent('مسؤوليات')">مسؤوليات متخصص الأمن السيبراني</button>
+            <button onclick="showContent('السعودية')">الأمن السيبراني في المملكة العربية السعودية</button>
+        </aside>
+
+        <main class="content" id="mainContent">
+            <div id="section-مفهوم" class="content-section active">
+                <h2>مفهوم الأمن السيبراني</h2>
+                <p>الأمن السيبراني هو عملية حماية الأنظمة والشبكات والبرامج من الهجمات الرقمية.</p>
+
+                <div class="video-box">
+                    <h3>فيديو تعريفي عن الأمن السيبراني</h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/mUQhnhwdoAM"
+                    title="فيديو الأمن السيبراني" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                </div>
+
+                <div class="image-boxes">
+                    <img src="image1.jpg" alt="صورة توضيحية" onerror="this.style.display='none';">
+                    <img src="image2.jpg" alt="صورة توضيحية" onerror="this.style.display='none';">
+                </div>
+
+                <div class="facts">
+                    <h3>حقائق سريعة</h3>
+                    <ul>
+                        <li>٪95 من خروقات البيانات سببها خطأ بشري.</li>
+                        <li>تحدث هجمة إلكترونية كل 39 ثانية على مستوى العالم.</li>
+                        <li>تتكبد الشركات أكثر من 6 تريليون دولار سنوياً بسبب الجرائم السيبرانية.</li>
+                    </ul>
+                </div>
+
+                <div class="download">
+                    <p>📄 لتحميل كتيب التوعية بالأمن السيبراني:</p>
+                    <a href="files/cyber_guide.pdf" download>اضغط هنا للتحميل</a>
+                </div>
+            </div>
+
+            <div id="section-أهمية" class="content-section">
+                <h2>أهمية الأمن السيبراني</h2>
+                <p>يُعد الأمن السيبراني من الركائز الأساسية لحماية البيانات والأنظمة من الاختراقات والتلاعبات الرقمية.
+                يساعد على تعزيز الثقة في المعاملات الإلكترونية ويقلل من التهديدات التي قد تُعرض المؤسسات والأفراد للمخاطر.</p>
+            </div>
+
+            <div id="section-مسؤوليات" class="content-section">
+                <h2>مسؤوليات متخصص الأمن السيبراني</h2>
+                <p>يتحمّل متخصص الأمن السيبراني مسؤوليات كبيرة تشمل مراقبة الشبكات والأنظمة، وتحليل التهديدات، وتطوير سياسات الحماية،
+                بالإضافة إلى الاستجابة السريعة للحوادث الأمنية والعمل على تحسين بنية الأمن التقني باستمرار.</p>
+            </div>
+
+            <div id="section-السعودية" class="content-section">
+                <h2>الأمن السيبراني في المملكة العربية السعودية</h2>
+                <p>تبذل المملكة العربية السعودية جهودًا كبيرة لتعزيز الأمن السيبراني من خلال إنشاء الهيئات المختصة مثل الهيئة الوطنية للأمن السيبراني،
+                وإطلاق المبادرات والبرامج التدريبية والتوعوية التي تهدف إلى حماية البنية التحتية الرقمية والارتقاء بمستوى الوعي السيبراني في المجتمع.</p>
+            </div>
+
+            <div class="note">
+                <h4>ملاحظة</h4>
+                <p>المركز الوطني الإرشادي للأمن السيبراني يوفر معلومات مهمة:</p>
+                <a href="https://nca.gov.sa/ar/">رابط المنصة</a><br>
+                <a href="https://hcaq.gov.sa/ar/cert">رابط الشهادة</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showContent(type) {
+            document.querySelectorAll('.content-section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            const section = document.getElementById('section-' + type);
+            if (section) {
+                section.classList.add('active');
+            }
+        }
+
+        document.querySelectorAll('a').forEach(link => {
+            link.setAttribute('target', '_blank');
+        });
+
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function filterContent() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const content = document.getElementById("mainContent");
+            content.querySelectorAll(".content-section").forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
